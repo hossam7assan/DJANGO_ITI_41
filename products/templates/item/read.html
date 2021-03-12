@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items Management</title>
+
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+</head>
+<body>
+
+    <h2>Item Management</h2>
+
+    <ul>
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="">blog</a></li>
+        <li><a href="">Contact</a></li>
+        <li><a href="">About</a></li>
+    </ul>
+
+    <table>
+        <tr>
+           <th>ID #</th>
+          <th>name</th>
+          <th>Price</th>
+          <th>department</th>
+          <th>description</th>
+        </tr>
+      
+        <tr>
+          <td>{{ item_data.id }}</td>
+          <td>{{item_data.name}}</td>
+          <td>{{item_data.price}}</td>
+          <td>{{ item_data.department.title }}</td>
+          <td>{{ item_data.description }}</td>
+              
+        </tr>
+        
+      </table>
+
+    <div class="footer">
+        <p>Created by ITI</p>
+    </div>
+    
+    
+    </body>
+    </html>
