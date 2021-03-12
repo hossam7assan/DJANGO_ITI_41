@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^item/(?P<item_id>\d+)/$', item.read, name='item_read'),
     path('item/add', item.create, name='item_add'),
     # path('item/save', item.save, name='item_save')
+    url(r'^item/(?P<item_id>\d+)/delete$', item.delete, name='item_delete'),
 
     # end of items urls
 ]

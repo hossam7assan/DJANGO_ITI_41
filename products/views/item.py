@@ -50,6 +50,12 @@ def create(request):
         # return HttpResponse('data saved')
         return redirect('item_list')
 
+def delete(request, item_id):
+    # return HttpResponse ('hello from delete')
+    item = get_object_or_404(Item, id=item_id)
+    item.delete()
+    return redirect('item_list')
+
 
 
 

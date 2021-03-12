@@ -1,53 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Items Management</title>
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block title %}
+Item Management
+{% endblock %}
 
-    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
 
-</head>
-<body>
-
-    <h2>Item Management</h2>
-
-    <ul>
-        <li><a class="active" href="#home">Home</a></li>
-        <li><a href="">blog</a></li>
-        <li><a href="">Contact</a></li>
-        <li><a href="">About</a></li>
-    </ul>
-    <br>
+{% block content %}
+    
     <a href="/item/add">Add new Item</a>
     <br>
-<table>
-  <tr>
-     <th>ID #</th>
-    <th>name</th>
-    <th>Price</th>
-    <th>department</th>
-    <th>Actions</th>
-  </tr>
-  {% for item in all_items %}
-  <tr>
-    <td>{{ forloop.counter }}</td>
-    <td>{{item.name}}</td>
-    <td>{{item.price}}</td>
-    <td>{{ item.department.title }}</td>
-    <td>
-        <a href="/item/{{ item.id}}">Read</a>
-    </td>
-  </tr>
-  {% endfor %}
-</table>
+    <table>
+        <tr>
+            <th>ID #</th>
+            <th>name</th>
+            <th>Price</th>
+            <th>department</th>
+            <th>Actions</th>
+        </tr>
+    {% for item in all_items %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.price}}</td>
+        <td>{{ item.department.title }}</td>
+        <td>
+            <a href="/item/{{ item.id}}">Read</a>
+            <a href="{% url 'item_delete'  item.id %}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </table>
 
-<div class="footer">
-    <p>Created by ITI</p>
-</div>
+{% endblock %}
 
-
-</body>
-</html>
