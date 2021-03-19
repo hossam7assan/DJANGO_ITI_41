@@ -21,8 +21,8 @@ Item Management
     <tr>
         <td>{{ forloop.counter }}</td>
         <td>{{item.name}}</td>
-        <td>{{item.price}}</td>
-        <td>{{ item.department.title }}</td>
+        <td>{{item.price}}</td> 
+        <td><a href="{% url 'item_list' %}?department={{ item.department.id }}">{{ item.department.title }}</a></td>
         <td>
             <a href="/item/{{ item.id}}">Read</a>
             <a href="{% url 'item_delete'  item.id %}">Delete</a>

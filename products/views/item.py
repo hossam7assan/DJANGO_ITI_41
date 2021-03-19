@@ -4,7 +4,13 @@ from products.models import Department
 from products.models import Item
 
 def index(request):
-    # list all items from databas
+    # read query param:
+    # department_id = request.GET.get('department')
+    # # return HttpResponse(department_id)
+    # # check for department if to user filter or all
+    # department = Department.objects.get(id=department_id)
+    # items = Item.objects.select_related('department').filter(department=department)
+    # list all items from database
     items = Item.objects.select_related('department').all()
     # render template to view the items
     return render(request, 'item/index.html', {'all_items': items})
